@@ -1,7 +1,7 @@
 import {useState, useEffects} from 'react'
 import { getDataVariable } from '../services/online/getDataVariable.js'
 
-export const Variable = ({logger}) => {
+export const Variable = ({logger, title}) => {
   const [variable, setVariable] = useState([]);
   getDataVariable(logger)
   .then(variable => {
@@ -10,7 +10,7 @@ export const Variable = ({logger}) => {
   return (
     <div className="App">
       <main>
-      <h1>Compuerta Neusa</h1>
+      <h1>{title}</h1>
       <table>
         <thead>
           <tr>

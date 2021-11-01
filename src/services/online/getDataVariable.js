@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-export const getDataVariable = () => {
-    return axios.get('https://backend-lacar.herokuapp.com/api/variables/neusa').then((response) => {
-        const {data } = response;
+export const getDataVariable = (logger) => {
+    console.log(logger);
+    return axios.get(`http://localhost:3001/api/variables/online/${logger}`).then((response) => {
+        const { data } = response;
         return data;
     });
 }

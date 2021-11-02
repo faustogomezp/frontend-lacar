@@ -1,12 +1,15 @@
-import {useState, useEffects} from 'react'
+import {useState, useEffect} from 'react'
 import { getDataVariable } from '../services/online/getDataVariable.js'
 
 export const Variable = ({logger, title}) => {
   const [variable, setVariable] = useState([]);
-  getDataVariable(logger)
-  .then(variable => {
-      setVariable(variable);
-  })
+  useEffect(() => {
+    getDataVariable(logger)
+    .then(variable => {
+        setVariable(variable);
+    })
+  }, [variable, logger])
+
   return (
     <div className="App">
       <main>

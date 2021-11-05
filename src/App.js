@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Variable } from './components/Variable.js'
 import {Home} from './components/Home.js'
 import {Menu} from './components/Menu.js'
+import {Reguladora } from './components/Reguladora.js'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Variable logger='compuertas' title='Compuertas Neusa'></Variable>
         </Route>
         <Route exact path='/'>
-          <Home />
+          <Reguladora />
         </Route>
       </Switch>
     </Router>

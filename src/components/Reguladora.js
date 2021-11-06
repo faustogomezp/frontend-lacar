@@ -6,13 +6,15 @@ import { getDataVariable } from '../services/online/getDataVariable.js'
 export const Reguladora = () => {
     const logger = 'valvula';
     const [variable, setVariable] = useState([]);
+    
     useEffect(() => {
     getDataVariable(logger)
     .then(variable => {
         setVariable(variable);
     })
-  }, [variable, logger])
-  console.log(variable['LIT_NEUSA']);
+    }, [variable, logger])
+
+
     return (
         <main className="Container">
             <h1>Embalse de Neusa</h1>
@@ -20,7 +22,7 @@ export const Reguladora = () => {
             <div className="Left">
                 <p className="Variable-title">Nivel</p>
                 <div className="Nivel-value"><p>{variable['LIT_NEUSA']}</p></div>
-                <div className="Equipment"></div>
+                <div className="Equipment"><p>LIT</p></div>
                 <div className="Line-Equipment"></div>
                 <div className="Water"></div>
                 <div className="Envolv-part-montain">
@@ -40,7 +42,39 @@ export const Reguladora = () => {
                 </div>
                 <div className="Montain"></div>
             </div>
-            <div className="Right"></div>
+            <div className="Right">
+                <div className="Main-line">
+                    <div className="Cut-valv">
+                        <div className="Status-valv">
+                            <p>{variable['REM_CORTE'] === 1 && variable['LOC_CORTE'] === 0 ? 'Remoto' :
+                            variable['REM_CORTE'] === 0 && variable['LOC_CORTE'] === 1 ? 'Local' : 'Fail'}</p>
+                        </div>
+                        <div className="Valv">
+                            <div className="Body-valv">
+                                <div className="Div-line"></div>
+                            </div>
+                            <div className="Con-valv"></div>
+                        </div>
+                        <div className="Main-pipe">
+                            <div className="Center-pipe">
+                                <div className="Pipe"></div>
+                            </div>
+                            <div className="Pipe-flange">
+                                <div className="Flange-left"></div>
+                                <div className="Flange-center"></div>
+                                <div className="Flange-right"></div>
+                            </div>
+                            <div className="Center-pipe">
+                                <div className="Pipe"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="Pit"></div>
+                    <div className="Fit"></div>
+                    <div className="Reg-valv"></div>
+                </div>
+                <div className="Bypass-line"></div>
+            </div>
             </div>
         </main>
     )

@@ -6,7 +6,6 @@ import { getDataVariable } from '../services/online/getDataVariable.js'
 export const Reguladora = () => {
     const logger = 'valvula';
     const [variable, setVariable] = useState([]);
-    
     useEffect(() => {
     getDataVariable(logger)
     .then(variable => {

@@ -19,62 +19,31 @@ export const Reguladora = () => {
         <main className="Container">
             <h1>Embalse de Neusa</h1>
             <div className="Picture">
-            <div className="Left">
-                <p className="Variable-title">Nivel</p>
-                <div className="Nivel-value"><p>{variable['LIT_NEUSA']}</p></div>
-                <div className="Equipment"><p>LIT</p></div>
-                <div className="Line-Equipment"></div>
-                <div className="Water"></div>
-                <div className="Envolv-part-montain">
-                    <div className="Earth"></div>
-                    <div className="Part-montain"></div>
+                <div className="Grid-lit-value">
+                    <div className="Value Lit"><p>{variable['PIT_FALLA'] === 1 
+                    ? 'Fail' : variable['LIT_NEUSA']}</p></div>
                 </div>
-            </div>
-            <div className="Center">
-                <div className="Envolv-top-top-montain">
-                    <div className="Top-top-left-montain"></div>
-                    <div className="Top-top-center-montain"></div>
-                    <div className="Top-top-right-montain"></div>
-                </div>
-                <div className="Envolv-top-montain">
-                    <div className="Top-left-montain"></div>
-                    <div className="Top-montain"></div>
-                </div>
-                <div className="Montain"></div>
-            </div>
-            <div className="Right">
-                <div className="Main-line">
-                    <div className="Cut-valv">
-                        <div className="Status-valv">
-                            <p>{variable['REM_CORTE'] === 1 && variable['LOC_CORTE'] === 0 ? 'Remoto' :
-                            variable['REM_CORTE'] === 0 && variable['LOC_CORTE'] === 1 ? 'Local' : 'Fail'}</p>
-                        </div>
-                        <div className="Valv">
-                            <div className="Body-valv">
-                                <div className="Div-line"></div>
-                            </div>
-                            <div className="Con-valv"></div>
-                        </div>
-                        <div className="Main-pipe">
-                            <div className="Center-pipe">
-                                <div className="Pipe"></div>
-                            </div>
-                            <div className="Pipe-flange">
-                                <div className="Flange-left"></div>
-                                <div className="Flange-center"></div>
-                                <div className="Flange-right"></div>
-                            </div>
-                            <div className="Center-pipe">
-                                <div className="Pipe"></div>
-                            </div>
-                        </div>
+                <div className="Grid-cut-valv">
+                    <div className="Layout-valv Font-value Cut-valv"><p>{variable['LOC_CORTE'] === 0 && variable['REM_CORTE'] === 1 
+                        ? 'Remoto' : variable['LOC_CORTE'] === 1 && variable['REM_CORTE'] === 0 
+                        ? 'Local' : 'Fail'}</p>
                     </div>
-                    <div className="Pit"></div>
-                    <div className="Fit"></div>
-                    <div className="Reg-valv"></div>
                 </div>
-                <div className="Bypass-line"></div>
-            </div>
+                <div className="Grid-pit-value">
+                    <div className="Value Pit"><p>{variable['PIT_FALLA'] === 1 
+                    ? 'Fail' : variable['PIT_NEUSA']}</p></div>
+                    <div className="Value Fit"><p>{variable['FIT_FALLA'] === 1
+                    ? 'Fail' : variable['FIT_NEUSA']}</p></div>
+                </div>
+                <div className="Grid-reg-valv">
+                    <div className="Layout-valv Font-value Reg-valv"><p>{variable['FAL_REG'] === 1 
+                        ? 'Fail' : variable['REM_REG'] === 1 
+                        ? 'Remoto' : variable['LOC_REG'] === 1 
+                        ? 'Local' : ''}</p>
+                    </div>
+                    <div className="Value Zt"><p>{variable['ZT_FALLA'] === 1
+                        ? 'Fail' : variable['ZT_NEUSA']}</p></div>
+                </div>
             </div>
         </main>
     )

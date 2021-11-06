@@ -13,7 +13,7 @@ function App() {
     <Menu></Menu>
       <Switch>
         <Route  path='/variables/online/valvula'>
-          <Variable logger='valvula' title='Valvula Reguladora Neusa'></Variable>
+          <Reguladora></Reguladora>
         </Route>
         <Route  path='/variables/online/alumbrado'>
           <Variable logger='alumbrado' title='Alumbrado El Hato'></Variable>
@@ -22,7 +22,7 @@ function App() {
           <Variable logger='compuertas' title='Compuertas Neusa'></Variable>
         </Route>
         <Route exact path='/'>
-          <Reguladora />
+          <Home />
         </Route>
       </Switch>
     </Router>

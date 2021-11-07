@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Variable } from './components/Variable.js'
 import {Home} from './components/Home.js'
 import {Menu} from './components/Menu.js'
-import {Reguladora } from './components/Reguladora.js'
+import { Reguladora } from './components/Reguladora.js'
+import { Alumbrado } from './components/Alumbrado.js'
 
 function App() {
   return (
@@ -13,10 +14,10 @@ function App() {
     <Menu></Menu>
       <Switch>
         <Route  path='/variables/online/valvula'>
-          <Reguladora></Reguladora>
+          <Reguladora />
         </Route>
         <Route  path='/variables/online/alumbrado'>
-          <Variable logger='alumbrado' title='Alumbrado El Hato'></Variable>
+        <Alumbrado />
         </Route>
         <Route  path='/variables/online/compuertas'>
           <Variable logger='compuertas' title='Compuertas Neusa'></Variable>

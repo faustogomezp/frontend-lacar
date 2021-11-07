@@ -123,6 +123,76 @@
   left: 115px;
 }
 
+.Picture-alumbrado {
+  display: grid;
+  grid-template-areas: "title1 ramal1 ramal1 ramal1 ramal1 ramal1"
+                      "title2 ramal2 ramal2 ramal2 ramal2 ramal2"
+                      "title3 ramal3 ramal3 ramal3 ramal3 ramal3";
+  height: 500px;
+  width: 850px;
+  background-color: white;
+}
+
+.title1 {
+  grid-area: title1;
+  color: blue;
+  font-weight: bold;
+}
+
+.title2 {
+  grid-area: title2;
+  color: blue;
+  font-weight: bold;
+}
+
+.title3 {
+  grid-area: title3;
+  color: blue;
+  font-weight: bold;
+}
+
+.Ramal1-encendido {
+  grid-area: ramal1;
+  background-image: url(./Luminaria-encendida.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
+.Ramal1-apagado {
+  grid-area: ramal1;
+  background-image: url(./Luminaria-apagada.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
+.Ramal2-encendido {
+  grid-area: ramal2;
+  background-image: url(./Luminaria-encendida.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
+.Ramal2-apagado {
+  grid-area: ramal2;
+  background-image: url(./Luminaria-apagada.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
+.Ramal3-encendido {
+  grid-area: ramal3;
+  background-image: url(./Luminaria-encendida.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
+.Ramal3-apagado {
+  grid-area: ramal3;
+  background-image: url(./Luminaria-apagada.png);
+  background-repeat: space;
+  background-size: contain;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

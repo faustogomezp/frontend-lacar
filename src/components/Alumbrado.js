@@ -3,11 +3,10 @@ import {useState, useEffect} from 'react'
 import { getDataVariable } from '../services/online/getDataVariable.js'
 
 
-export const Alumbrado = () => {
-    const logger = 'alumbrado';
+export const Alumbrado = ({ logger }) => {
     const [variable, setVariable] = useState([]);
     useEffect(() => {
-    getDataVariable(logger)
+    getDataVariable( logger )
     .then(variable => {
         setVariable(variable);
     })

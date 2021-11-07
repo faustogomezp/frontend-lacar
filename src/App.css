@@ -193,6 +193,63 @@
   background-size: contain;
 }
 
+.Picture-compuertas {
+  display: grid;
+  grid-template-areas: "compuerta1 compuerta2 compuerta3";
+  height: 500px;
+  width: 850px;
+  background-color: white;
+}
+
+.Compuerta {
+  background-image: url(./Compuerta-radial-3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Compuerta1 {
+  grid-area: compuerta1;
+}
+
+.Compuerta2 {
+  grid-area: compuerta2;
+}
+
+.Compuerta2 {
+  grid-area: compuerta3;
+}
+
+.Compuerta-abierta {
+  position: relative;
+  Top: 150px;
+  left: -90px;
+  font-weight: bold;
+  color: green;
+}
+
+.Compuerta-loc-rem {
+  position: relative;
+  top: 126px;
+  left: 40px;
+  font-weight: bold;
+}
+
+.Compuerta-falla {
+  position: relative;
+  top: 150px;
+  font-weight: bold;
+  color: red;
+  font-size: 20px;
+}
+
+.Compuerta-cerrada{
+  position: relative;
+  top: 240px;
+  color: red;
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -18,8 +18,24 @@
   min-height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Menu {
+  width: 50%;
+}
+
+.Menu-opciones {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+}
+
+.Menu-opciones li a {
+  text-decoration: none;
   color: white;
 }
 
@@ -230,14 +246,14 @@
 
 .Compuerta-loc-rem {
   position: relative;
-  top: 126px;
+  top: 146px;
   left: 40px;
   font-weight: bold;
 }
 
 .Compuerta-falla {
   position: relative;
-  top: 150px;
+  top: 170px;
   font-weight: bold;
   color: red;
   font-size: 20px;
@@ -245,7 +261,7 @@
 
 .Compuerta-cerrada{
   position: relative;
-  top: 240px;
+  top: 310px;
   color: red;
   font-weight: bold;
 }

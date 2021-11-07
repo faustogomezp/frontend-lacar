@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const Menu = () => {
     return (
         <header className="App-header">
-        <nav>
-            <ul>
+        <nav className="Menu">
+            <ul className="Menu-opciones">
                 <li>
             <Link to='/'>
                 Home

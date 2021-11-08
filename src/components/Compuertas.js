@@ -18,6 +18,7 @@ export const Compuertas = ({ logger }) => {
             {console.log('Renderizado')}
             <div className="Picture-compuertas">
                 <div className="Compuerta Compuerta1">
+                    <h3>Compuerta 1</h3>
                     <p className='Compuerta-abierta'>{variable['ENT5_ABIER_1'] === 1 
                     ? 'Abierta' :  '' }</p>
                     <p className='Compuerta-loc-rem'>{variable['ENT2_MAN_1'] === 1 
@@ -29,6 +30,7 @@ export const Compuertas = ({ logger }) => {
                     ? 'Cerrada' :  '' }</p>
                 </div>
                 <div className="Compuerta Compuerta2">
+                    <h3>Compuerta 2</h3>
                     <p className='Compuerta-abierta'>{variable['ENT2_2_ABIER_2HMI'] === 1 
                     ? 'Abierta' :  '' }</p>
                     <p className='Compuerta-loc-rem'>{variable['ENT7_MAN_2'] === 1 
@@ -40,6 +42,7 @@ export const Compuertas = ({ logger }) => {
                     ? 'Cerrada' :  '' }</p>
                 </div>
                 <div className="Compuerta Compuerta3">
+                    <h3>Compuerta 3</h3>
                     <p className='Compuerta-abierta'>{variable['ENT2_7_ABIER_3_HMI'] === 1 
                     ? 'Abierta' :  '' }</p>
                     <p className='Compuerta-loc-rem'>{variable['ENT2_4_MAN_3_HMI'] === 1 

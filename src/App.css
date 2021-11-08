@@ -18,13 +18,18 @@
   min-height: 100px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-header time {
+  margin-left: 10px;
+}
+
 .Menu {
   width: 50%;
+  margin-right: 10px;
 }
 
 .Menu-opciones {
@@ -51,6 +56,21 @@
   height: 500px;
   width: 100%;
   background-color: rgb(195, 191, 195);
+}
+
+.Main-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Main-header p {
+  margin-right: 20px;
+}
+
+.Main-header h1 {
+  margin-left: 20px;
 }
 
 .Picture {

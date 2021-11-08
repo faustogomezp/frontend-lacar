@@ -14,7 +14,7 @@ function App() {
     <Menu></Menu>
       <Switch>
         <Route  path='/variables/online/valvula'>
-          <Reguladora />
+          <Reguladora logger='valvula'/>
         </Route>
         <Route  path='/variables/online/alumbrado'>
           <Alumbrado logger='alumbrado'/>

@@ -2,21 +2,32 @@ import '../App.css';
 import {useState, useEffect} from 'react'
 import { getDataVariable } from '../services/online/getDataVariable.js'
 
-
-export const Reguladora = () => {
-    const logger = 'valvula';
+export const Reguladora = ({logger}) => {
     const [variable, setVariable] = useState([]);
+    const [dateData, setDateData] = useState('');
     useEffect(() => {
-    getDataVariable(logger)
-    .then(variable => {
-        setVariable(variable);
-    })
-    }, [variable, logger])
+        let isSubscribed = true;
+        getDataVariable( logger )
+            .then(variable => {
+                if (isSubscribed) {
+                    setVariable(variable);
+                    let date = new Date(variable['FECHA']);
+                    let dateTime = date.getTime();
+                    let dateTimeReal = dateTime - 18000000;
+                    date.setTime(dateTimeReal);
+                    setDateData(date.toLocaleString());
+                };
+            })
+        return () => (isSubscribed = false);
+    }, [variable, logger, dateData])
 
-
+    
     return (
         <main className="Container">
+            <div className="Main-header">
             <h1>Embalse de Neusa</h1>
+            <p>Última actualización {dateData}</p>
+            </div>
             <div className="Picture">
                 <div className="Grid-lit-value">
                     <div className="Value Lit"><p>{variable['PIT_FALLA'] === 1 

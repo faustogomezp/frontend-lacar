@@ -5,16 +5,29 @@ import { getDataVariable } from '../services/online/getDataVariable.js'
 
 export const Alumbrado = ({ logger }) => {
     const [variable, setVariable] = useState([]);
+    const [dateData, setDateData] = useState('');
     useEffect(() => {
-    getDataVariable( logger )
-    .then(variable => {
-        setVariable(variable);
-    })
-    }, [variable, logger])
+        let isSubscribed = true;
+        getDataVariable( logger )
+            .then(variable => {
+                if (isSubscribed) {
+                    setVariable(variable);
+                    let date = new Date(variable['FECHA']);
+                    let dateTime = date.getTime();
+                    let dateTimeReal = dateTime - 18000000;
+                    date.setTime(dateTimeReal);
+                    setDateData(date.toLocaleString());
+                };
+            })
+        return () => (isSubscribed = false);
+    }, [variable, logger, dateData])
 
     return (
         <main className="Container">
+            <div className="Main-header">
             <h1>Alumbrado</h1>
+            <p>Última actualización {dateData}</p>
+            </div>
             <div className="Picture-alumbrado">
                 <div className="title1">
                     <p>Zona 1</p>

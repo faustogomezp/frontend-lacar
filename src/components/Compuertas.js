@@ -1,6 +1,6 @@
 import '../App.css';
 import {useState, useEffect} from 'react'
-import { getDataVariable } from '../services/online/getDataVariable.js'
+import variableService from '../services/online/getDataVariable.js'
 
 
 export const Compuertas = ({ logger }) => {
@@ -8,7 +8,7 @@ export const Compuertas = ({ logger }) => {
     const [dateData, setDateData] = useState('');
     useEffect(() => {
         let isSubscribed = true;
-        getDataVariable( logger )
+        variableService.getDataVariable(logger)
             .then(variable => {
                 if (isSubscribed) {
                     setVariable(variable);

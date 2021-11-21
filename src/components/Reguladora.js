@@ -1,13 +1,13 @@
 import '../App.css';
 import {useState, useEffect} from 'react'
-import { getDataVariable } from '../services/online/getDataVariable.js'
+import variableService from '../services/online/getDataVariable.js'
 
 export const Reguladora = ({logger}) => {
     const [variable, setVariable] = useState([]);
-    const [dateData, setDateData] = useState('');
+    const [dateData, setDateData] = useState('');    
     useEffect(() => {
         let isSubscribed = true;
-        getDataVariable( logger )
+        variableService.getDataVariable(logger)
             .then(variable => {
                 if (isSubscribed) {
                     setVariable(variable);
@@ -19,11 +19,11 @@ export const Reguladora = ({logger}) => {
                 };
             })
         return () => (isSubscribed = false);
-    }, [variable, logger, dateData])
+    }, [logger, variable]);
 
-    
     return (
-        <main className="Container">
+        <main>
+            <div className="Container"  >
             <div className="Main-header">
             <h1>Embalse de Neusa</h1>
             <p>Última actualización {dateData}</p>
@@ -55,6 +55,8 @@ export const Reguladora = ({logger}) => {
                         ? 'Fail' : variable['ZT_NEUSA']}</p></div>
                 </div>
             </div>
+            </div>
         </main>
+        
     )
 }

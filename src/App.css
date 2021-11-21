@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
   color: white;
 }
 
@@ -44,6 +44,10 @@
   color: white;
 }
 
+.Logout {
+  cursor: pointer;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -56,6 +60,26 @@
   height: 500px;
   width: 100%;
   background-color: rgb(195, 191, 195);
+}
+
+.Form-login{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Form-login input {
+  height: 30px;
+  margin: 10px;
+  border-radius: 5%;
+}
+
+.Form-login button {
+  height: 30px;
+  border-radius: 5%;
+  color: #ffffff;
+  background-color: #282c34;
 }
 
 .Main-header {

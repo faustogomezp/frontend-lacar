@@ -6,16 +6,15 @@ import { Reguladora } from '../components/Reguladora.js'
 import { Alumbrado } from '../components/Alumbrado.js'
 import {Compuertas } from '../components/Compuertas.js'
 import {FormLogin } from '../components/FormLogin.js'
+import {FormCreateUser} from '../components/FormCreateUser.js'
 import useAuth from '../auth/useAuth'
 
 
 export const AppRouter = () =>{
-  const { isLogged, validateLogin, getUser } = useAuth();
+  const { isLogged, validateLogin,  } = useAuth();
   
   useEffect(() => {
     validateLogin()
-    const user = getUser()
-    console.log(isLogged())
   }, [])
   
 
@@ -25,6 +24,10 @@ export const AppRouter = () =>{
       <Switch>
       <Route path='/users/login' render={() => {
         return isLogged() ? <Redirect to='/' /> : <FormLogin />
+      }}>
+        </Route>
+        <Route path='/users/create_user' render={() => {
+        return <FormCreateUser />
       }}>
         </Route>
         <Route  path='/variables/online/valvula' render={() => {

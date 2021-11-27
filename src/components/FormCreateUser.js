@@ -5,24 +5,25 @@ import loginService  from '../services/users/login'
 import useAuth from '../auth/useAuth'
 
 
-export const FormLogin = () => {
+export const FormCreateUser = () => {
+    const [name, setName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const {login, isLogged} = useAuth();
 
-    const handleLogin = async (event) => {
+    const handleCreateUser = async (event) => {
         event.preventDefault()
         try{
-            const userSession = await loginService.login({
+            const userSession = await loginService.createUser({
+                name,
                 username,
                 password
             })
-            window.localStorage.setItem(
-                'loggedLacarUser', JSON.stringify(userSession)
-            )
-            login(userSession)
+
             setUsername('')
             setPassword('')
+            setName('')
+            alert('Se creo el usuario '+userSession.username)
         } catch(e){
             console.log(e)
         }
@@ -30,15 +31,16 @@ export const FormLogin = () => {
     
       
     return (
-            <div>
-            {isLogged() ?
-            <div>
-            <Redirect to='/' />
-            </div>
-            : 
             <div className='Container'>
-            <h1>Iniciar Sesión</h1>
-            <form onSubmit={handleLogin}  className="Form-login">
+            <h1>Crear usuario</h1>
+            <form onSubmit={handleCreateUser}  className="Form-login">
+                <input
+                type='text'
+                value={name}
+                name='Name'
+                placeholder='name'
+                onChange={({target}) => setName(target.value)}
+                />
                 <input
                 type='text'
                 value={username}
@@ -53,10 +55,8 @@ export const FormLogin = () => {
                 placeholder='Password'
                 onChange={({target}) => setPassword(target.value)}
                 />
-                <button >Login</button>
+                <button >Crear Usuario</button>
             </form>
             </div>
-        }
-        </div>
     )
 }

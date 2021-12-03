@@ -1,6 +1,7 @@
 import '../App.css';
 import {useState, useEffect} from 'react'
 import variableService from '../services/online/getDataVariable.js'
+import { Link } from 'react-router-dom';
 
 
 export const Alumbrado = ({ logger }) => {
@@ -26,6 +27,7 @@ export const Alumbrado = ({ logger }) => {
         <main className="Container">
             <div className="Main-header">
             <h1>Alumbrado</h1>
+            <Link to='/history/alumbrado'>Historicos</Link>
             <p>Última actualización {dateData}</p>
             </div>
             <div className="Picture-alumbrado">

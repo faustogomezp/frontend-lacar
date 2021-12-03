@@ -1,6 +1,7 @@
 import '../App.css';
 import {useState, useEffect} from 'react'
 import variableService from '../services/online/getDataVariable.js'
+import { Link } from 'react-router-dom';
 
 
 export const Compuertas = ({ logger }) => {
@@ -26,6 +27,7 @@ export const Compuertas = ({ logger }) => {
         <main className="Container">
             <div className="Main-header">
             <h1>Compuertas</h1>
+            <Link to='/history/compuertas'>Historicos</Link>
             <p>Última actualización {dateData}</p>
             </div>
             <div className="Picture-compuertas">

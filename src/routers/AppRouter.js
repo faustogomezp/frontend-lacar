@@ -7,6 +7,9 @@ import { Alumbrado } from '../components/Alumbrado.js'
 import {Compuertas } from '../components/Compuertas.js'
 import {FormLogin } from '../components/FormLogin.js'
 import {FormCreateUser} from '../components/FormCreateUser.js'
+import {HistoryReguladora} from '../components/HistoryReguladora.js'
+import {HistoryCompuertas} from '../components/HistoryCompuertas.js'
+import {HistoryAlumbrado} from '../components/HistoryAlumbrado.js'
 import useAuth from '../auth/useAuth'
 
 
@@ -29,6 +32,18 @@ export const AppRouter = () =>{
         <Route path='/users/create_user' render={() => {
         return <FormCreateUser />
       }}>
+        </Route>
+        <Route path='/history/valvula' render={() => {
+        return <HistoryReguladora />
+      }}>
+        </Route>
+        <Route path='/history/compuertas' render={() => {
+        return <HistoryCompuertas />
+        }}>
+        </Route>
+        <Route path='/history/alumbrado' render={() => {
+        return <HistoryAlumbrado />
+        }}>
         </Route>
         <Route  path='/variables/online/valvula' render={() => {
           return isLogged() ? <Reguladora logger='valvula' /> 

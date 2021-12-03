@@ -26,5 +26,29 @@ const getDataVariable = (logger) => {
 }
 
 
+const getHistoryVariable = (logger, dIni, dFin) => {
+    if (token){
+        console.log(token)
+        const config = {
+            headers: {
+                Authorization: token
+            },
 
-export default { getDataVariable, setToken, getToken}
+        }
+        const bodyParameters = 
+        {
+            dateIni: dIni,
+            dateFin: dFin
+        }
+        const baseUrl = `http://localhost:3001/api/variables/${logger}`
+        return axios.post(baseUrl, bodyParameters, config).then((response) => {
+            const { data } = response;
+            console.log(data)
+            return data;
+        });
+    }
+}
+
+
+
+export default { getDataVariable, setToken, getToken, getHistoryVariable}

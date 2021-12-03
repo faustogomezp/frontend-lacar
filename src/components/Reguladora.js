@@ -1,6 +1,7 @@
 import '../App.css';
 import {useState, useEffect} from 'react'
 import variableService from '../services/online/getDataVariable.js'
+import { Link } from 'react-router-dom';
 
 export const Reguladora = ({logger}) => {
     const [variable, setVariable] = useState([]);
@@ -26,11 +27,12 @@ export const Reguladora = ({logger}) => {
             <div className="Container"  >
             <div className="Main-header">
             <h1>Embalse de Neusa</h1>
+            <p><Link to='/history/valvula'>Historicos</Link></p>
             <p>Última actualización {dateData}</p>
             </div>
             <div className="Picture">
                 <div className="Grid-lit-value">
-                    <div className="Value Lit"><p>{variable['PIT_FALLA'] === 1 
+                    <div className="Value Lit"><p>{variable['LIT_FALLA'] === 1 
                     ? 'Fail' : variable['LIT_NEUSA']}</p></div>
                 </div>
                 <div className="Grid-cut-valv">

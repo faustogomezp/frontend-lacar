@@ -62,6 +62,27 @@
   background-color: rgb(195, 191, 195);
 }
 
+.History {
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.History table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  margin: 2px;
+}
+
+.Form-history {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
 .Form-login{
   width: 200px;
   height: 200px;

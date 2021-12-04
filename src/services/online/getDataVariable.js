@@ -40,7 +40,7 @@ const getHistoryVariable = (logger, dIni, dFin) => {
             dateIni: dIni,
             dateFin: dFin
         }
-        const baseUrl = `http://localhost:3001/api/variables/${logger}`
+        const baseUrl = `http://www.neusapry.com:3001/api/variables/${logger}`
         return axios.post(baseUrl, bodyParameters, config).then((response) => {
             const { data } = response;
             console.log(data)

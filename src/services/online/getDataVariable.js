@@ -17,7 +17,7 @@ const getDataVariable = (logger) => {
             Authorization: token
         }
     }
-    const baseUrl = `http://localhost:3001/api/variables/online/${logger}`
+    const baseUrl = `http://www.neusapry.com:3001/api/variables/online/${logger}`
     return axios.get(baseUrl, config).then((response) => {
         const { data } = response;
         return data;

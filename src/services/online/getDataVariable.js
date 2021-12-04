@@ -28,7 +28,6 @@ const getDataVariable = (logger) => {
 
 const getHistoryVariable = (logger, dIni, dFin) => {
     if (token){
-        console.log(token)
         const config = {
             headers: {
                 Authorization: token
@@ -43,7 +42,6 @@ const getHistoryVariable = (logger, dIni, dFin) => {
         const baseUrl = `http://www.neusapry.com:3001/api/variables/${logger}`
         return axios.post(baseUrl, bodyParameters, config).then((response) => {
             const { data } = response;
-            console.log(data)
             return data;
         });
     }

@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 export const Reguladora = ({logger}) => {
     const [variable, setVariable] = useState([]);
-    const [dateData, setDateData] = useState('');    
+    const [dateData, setDateData] = useState('');
+    const [error, setError] = useState(null)   
     useEffect(() => {
         let isSubscribed = true;
         variableService.getDataVariable(logger)
@@ -19,8 +20,11 @@ export const Reguladora = ({logger}) => {
                     setDateData(date.toLocaleString());
                 };
             })
+            .catch((error) => {
+                setError(error)
+            })
         return () => (isSubscribed = false);
-    }, [logger, variable]);
+    }, [logger, variable, error]);
 
     return (
         <main>
@@ -30,6 +34,9 @@ export const Reguladora = ({logger}) => {
             <p><Link to='/history/valvula'>Historicos</Link></p>
             <p>Última actualización {dateData}</p>
             </div>
+            {
+                error ? <p>No se pudo establecer conexión con el servidor</p>
+                :
             <div className="Picture">
                 <div className="Grid-lit-value">
                     <div className="Value Lit"><p>{variable['LIT_FALLA'] === 1 
@@ -56,8 +63,11 @@ export const Reguladora = ({logger}) => {
                     <div className="Value Zt"><p>{variable['ZT_FALLA'] === 1
                         ? 'Fail' : variable['ZT_NEUSA']}</p></div>
                 </div>
+            
             </div>
+            }
             </div>
+            
         </main>
         
     )

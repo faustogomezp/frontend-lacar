@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export const Compuertas = ({ logger }) => {
     const [variable, setVariable] = useState([]);
     const [dateData, setDateData] = useState('');
+    const [error, setError] = useState(null)
     useEffect(() => {
         let isSubscribed = true;
         variableService.getDataVariable(logger)
@@ -20,8 +21,11 @@ export const Compuertas = ({ logger }) => {
                     setDateData(date.toLocaleString());
                 };
             })
+            .catch((error) => {
+                setError(error)
+            })
         return () => (isSubscribed = false);
-    }, [variable, logger, dateData])
+    }, [variable, logger, dateData, error])
 
     return (
         <main className="Container">
@@ -30,6 +34,9 @@ export const Compuertas = ({ logger }) => {
             <Link to='/history/compuertas'>Historicos</Link>
             <p>Última actualización {dateData}</p>
             </div>
+            {
+                error ? <p>No se pudo establecer conexión con el servidor</p>
+                :
             <div className="Picture-compuertas">
                 <div className="Compuerta Compuerta1">
                     <h3>Compuerta 1</h3>
@@ -68,6 +75,7 @@ export const Compuertas = ({ logger }) => {
                     ? 'Cerrada' :  '' }</p>
                 </div>
             </div>
+        }
         </main>
     )
 }

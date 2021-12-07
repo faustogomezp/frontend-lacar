@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export const Alumbrado = ({ logger }) => {
     const [variable, setVariable] = useState([]);
     const [dateData, setDateData] = useState('');
+    const [error, setError] = useState(null)
     useEffect(() => {
         let isSubscribed = true;
         variableService.getDataVariable(logger)
@@ -20,8 +21,11 @@ export const Alumbrado = ({ logger }) => {
                     setDateData(date.toLocaleString());
                 };
             })
+            .catch((error) => {
+                setError(error)
+            })
         return () => (isSubscribed = false);
-    }, [variable, logger, dateData])
+    }, [variable, logger, dateData, error])
 
     return (
         <main className="Container">
@@ -30,6 +34,9 @@ export const Alumbrado = ({ logger }) => {
             <Link to='/history/alumbrado'>Historicos</Link>
             <p>Última actualización {dateData}</p>
             </div>
+            {
+                error ? <p>No se pudo establecer conexión con el servidor</p>
+                :
             <div className="Picture-alumbrado">
                 <div className="title1">
                     <p>Zona 1</p>
@@ -56,6 +63,7 @@ export const Alumbrado = ({ logger }) => {
                 ? "Ramal3-encendido" : "Ramal3-apagado"}>
                 </div>
             </div>
+            }
         </main>
     )
 }
